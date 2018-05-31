@@ -29,7 +29,7 @@ namespace Hopfield {
         int count_net(int i, std::vector<int> n);
         int multiply_pattern(int row, int col);
         void clean_vectors();
-        void print_result();
+        void print_res(std::vector<std::vector<int>> patterns);
         bool save_to_file(std::string filename);
         ~hopfield();
     private:

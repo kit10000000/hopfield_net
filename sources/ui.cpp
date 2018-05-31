@@ -10,12 +10,14 @@
 void  Hopfield::UI::print_menu() {
     std::cout << "Выберите одну из операций:" << std::endl;
     std::cout << "1. Ввод эталона из файла" << std::endl;
-    std::cout << "2. Ввод паттерна из файла" << std::endl;
-    std::cout << "3. Распознавание" << std::endl;
-    std::cout << "4. Вывод в файл" << std::endl;
-    std::cout << "5. Вывод на экран" << std::endl;
-    std::cout << "6. Очистка эталонов и паттернов" << std::endl;
-    std::cout << "7. Завершить работу программы" << std::endl;
+    std::cout << "2. Вывод эталонов на экран" << std::endl;
+    std::cout << "3. Ввод паттерна из файла" << std::endl;
+    std::cout << "4. Вывод паттернов для распознавания на  экран" << std::endl;
+    std::cout << "5. Распознавание" << std::endl;
+    std::cout << "6. Вывод в файл" << std::endl;
+    std::cout << "7. Вывод на экран" << std::endl;
+    std::cout << "8. Очистка эталонов и паттернов" << std::endl;
+    std::cout << "9. Завершить работу программы" << std::endl;
 }
 
 bool Hopfield::UI::check_file_exist(std::string &path) {
@@ -48,13 +50,17 @@ std::vector<std::vector<int>> Hopfield::UI::upload(bool need_path,Hopfield::hopf
                         if (network.rows==0){
                             network.rows = rows_count;
                         }
-                        std::cout << buffer << std::endl;
+                        if ((rows_count != network.rows))
+                        {
+                            std::cerr << "Изображения должны быть строго одного размера" << std::endl;
+                            inputs.clear();
+                            return inputs;
+                        }
                         rows_count = 0;
                         inputs.push_back(tmp);
                         tmp.clear();
                     } else {
                         rows_count++;
-                        std::cout << buffer << std::endl;
                         cols_count = 0;
                         for (int i = 0; i < buffer.size(); i++){
                             cols_count++;
@@ -63,19 +69,19 @@ std::vector<std::vector<int>> Hopfield::UI::upload(bool need_path,Hopfield::hopf
                             if(buffer[i] == '1')
                                 tmp.push_back(1);
                         }
+                        if (cols_count != network.columns)
+                        {
+                            std::cerr << "Изображения должны быть строго одного размера" << std::endl;
+                            inputs.clear();
+                            return inputs;
+                        }
                         buffer.clear();
                     }
             }
-            if ((rows_count == network.rows) && (cols_count == network.columns))
-            {
-                inputs.push_back(tmp);
-                tmp.clear();
-                f.close();
-                std::cout << "Изображения успешно загружены" << std::endl;
-            }
-            else{
-                std::cout << "Изображения должны быть одного размера" << std::endl;
-            }
+            inputs.push_back(tmp);
+            tmp.clear();
+            f.close();
+            std::cout << "Изображения успешно загружены" << std::endl;
         }
     } else {
         std::cerr << "Файла с заданным путем не существует" << std::endl;
@@ -117,16 +123,26 @@ void Hopfield::UI::work(Hopfield::hopfield& network) {
                 print_menu();
                 break;
             case 2:
-                std::cout << "2. Ввод паттерна из файла" << std::endl;
-                network.vectorization(upload(true,network), &network.patterns);
+                std::cout << "2. Вывод эталонов на экран" << std::endl;
+                network.print_res(network.etalon);
                 print_menu();
                 break;
             case 3:
-                std::cout << "3. Распознавание" << std::endl; //to do: добавить предложение о сохранении образа в файл
-                network.recognition();
+                std::cout << "3. Ввод паттерна из файла" << std::endl;
+                network.vectorization(upload(true,network), &network.patterns);
+                print_menu();
                 break;
             case 4:
-                std::cout << "4. Вывод в файл" << std::endl;
+                std::cout << "4. Вывод паттернов для распознавания на экран" << std::endl;
+                network.print_res(network.patterns);
+                print_menu();
+                break;
+            case 5:
+                std::cout << "5. Распознавание" << std::endl; //to do: добавить предложение о сохранении образа в файл
+                network.recognition();
+                break;
+            case 6:
+                std::cout << "6. Вывод результата в файл" << std::endl;
                 if (network.check_size(network.new_patterns)){
                         std::cout << "Введите название файла" << std::endl;
                         std::string file_name = Hopfield::UI::user_input();
@@ -146,17 +162,17 @@ void Hopfield::UI::work(Hopfield::hopfield& network) {
                         std::cout << "Нечего сохранять" << std::endl;
                     }
                 break;
-            case 5:
-                std::cout << "5. Вывод на экран" << std::endl;
-                network.print_result();
+            case 7:
+                std::cout << "7. Вывод результата на экран" << std::endl;
+                network.print_res(network.new_patterns);
                 print_menu();
                 break;
-            case 6:
-                std::cout << "6. Очистка эталонов и паттернов" << std::endl;
+            case 8:
+                std::cout << "8. Очистка эталонов и паттернов" << std::endl;
                 network.clean_vectors();
                 break;
-            case 7:
-                std::cout << "7. Завершить работу программы" << std::endl;
+            case 9:
+                std::cout << "9. Завершить работу программы" << std::endl;
                 std::cout << "Вы уверены, что хотите выйти из программы ?" << std::endl;
                 if(while_yes_or_no())
                     return;

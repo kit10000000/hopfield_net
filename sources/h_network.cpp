@@ -123,12 +123,12 @@ bool Hopfield::hopfield::save_to_file(std::string filename){
     f.close();
     return true;
 }
-void Hopfield::hopfield::print_result() {
-    if (check_size(new_patterns)){
-        for(auto n: new_patterns){
+void Hopfield::hopfield::print_res(std::vector<std::vector<int>> vec) {
+    if (check_size(vec)){
+        for(auto n: vec){
             for( int i = 0; i < n.size(); i+= this -> columns) {
                 for( int j = i; j < this -> columns+i && j < n.size(); j++) {
-                    if( n[j] == -1 ) std::cout << "\u2B1C";
+                    if( n[j] == -1 || n[j] == '-') std::cout << "\u2B1C";
                     else std::cout << "\u2B1B";
                 }
                 std::cout<<std::endl;
@@ -137,7 +137,7 @@ void Hopfield::hopfield::print_result() {
         }
     }
     else{
-        std::cout<<"Ничего не было распознано"<<std::endl;
+        std::cout<<"Нечего выводить"<<std::endl;
     }
     
 };
