@@ -1,6 +1,6 @@
 # hopfield_net
-[![Build Status](https://travis-ci.org/kit10000000/BSTTree.svg?branch=develop)](https://travis-ci.org/kit10000000/BSTTree)
-[![Build status](https://ci.appveyor.com/api/projects/status/sw6yldb4u6fggkf5?svg=true)](https://ci.appveyor.com/project/kit10000000/bsttree)
+[![Build Status](https://travis-ci.org/kit10000000/hopfield_net.svg?branch=master)](https://travis-ci.org/kit10000000/hopfield_net)
+[![Build status](https://ci.appveyor.com/api/projects/status/6tueohl8ln6lont9?svg=true)](https://ci.appveyor.com/project/kit10000000/hopfield-net)
 
 Целью данного проекта является программная реализация на языке C++ метода распознавания простейшего изображения на основе нейронной сети Хопфилда.
 
