@@ -1,3 +1,4 @@
+
 # Prerequisites
 *.d
 
@@ -43,3 +44,7 @@ docs/
 *DerivedData*/
 *.xcodeproj
 *Index*/
+*.cmake
+*CMakeFiles*/
+*CMakeCache*.txt
+*MakeFile*

@@ -42,6 +42,6 @@ doxygen и разместить ее на сервисе GitHub Page.
 ```ShellSession
 $ git clone https://github.com/kit10000000/hopfield_net.git hopfield_net
 $ cd hopfield_net
-$ cmake -H. -B_builds 
-$ cmake --build _builds 
+$ cmake -H. -Bfiles 
+$ cmake --build files
 ```
