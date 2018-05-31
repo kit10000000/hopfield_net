@@ -4,7 +4,7 @@ image:
   - Ubuntu
   
 before_build:
-  - cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install -DBUILD_TESTS=ON -DCPACK_GENERATOR="TGZ" 
+  - cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install -DCPACK_GENERATOR="TGZ" 
   
 build_script:
   - cmake --build _build
