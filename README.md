@@ -1,6 +1,6 @@
 # hopfield_net
-[![Build Status](https://travis-ci.org/kit10000000/BSTTree.svg?branch=develop)](https://travis-ci.org/kit10000000/BSTTree)
-[![Build status](https://ci.appveyor.com/api/projects/status/sw6yldb4u6fggkf5?svg=true)](https://ci.appveyor.com/project/kit10000000/bsttree)
+[![Build Status](https://travis-ci.org/kit10000000/hopfield_net.svg?branch=master)](https://travis-ci.org/kit10000000/hopfield_net)
+[![Build status](https://ci.appveyor.com/api/projects/status/6tueohl8ln6lont9?svg=true)](https://ci.appveyor.com/project/kit10000000/hopfield-net)
 
 Целью данного проекта является программная реализация на языке C++ метода распознавания простейшего изображения на основе нейронной сети Хопфилда.
 
@@ -29,13 +29,10 @@ cpplint.
 6. - [x] Создать CMakeLists.txt для автоматизации сборки проекта.
 7. - [x] Добавить в CMakeLists.txt автоматизацию процесса сборки
 примеров.
-8. - [ ] Обеспечить непрерывный процесс сборки проекта с
-использованием сервиса Travis CI .
-9. - [ ] Обеспечить непрерывный процесс сборки и тестирование проекта
-с использованием сервисов Travis CI и AppVeyor.
-10. - [ ] Написать документацию к проекту с использованием инструмента
+8. - [x] Обеспечить непрерывный процесс сборки с использованием сервисов Travis CI и AppVeyor.
+9. - [ ] Написать документацию к проекту с использованием инструмента
 doxygen и разместить ее на сервисе GitHub Page.
-11. - [ ] Добавить в CMakeLists.txt автоматизацию процесса
+10. - [x] Добавить в CMakeLists.txt автоматизацию процесса
 пакетирования.
 
 
