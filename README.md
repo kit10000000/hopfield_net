@@ -1,4 +1,4 @@
-# BSTTree
+# hopfield_net
 [![Build Status](https://travis-ci.org/kit10000000/BSTTree.svg?branch=develop)](https://travis-ci.org/kit10000000/BSTTree)
 [![Build status](https://ci.appveyor.com/api/projects/status/sw6yldb4u6fggkf5?svg=true)](https://ci.appveyor.com/project/kit10000000/bsttree)
 
@@ -20,28 +20,28 @@
 Требования:
 1. - [x] Файлы исходного кода должны располагаться на сервисе GitHub
 в открытом репозитории
-2. - [] Код должен быть читабельным и оформлен в едином стиле.
+2. - [ ] Код должен быть читабельным и оформлен в едином стиле.
 astyle
-3. - [] Файлы исходного кода должны пройти проверку утилитой
+3. - [ ] Файлы исходного кода должны пройти проверку утилитой
 cpplint.
 4. - [x] Оформить README.md файл, содержащий описание проекта.
 5. - [x] Оформить .gitignore файл.
 6. - [x] Создать CMakeLists.txt для автоматизации сборки проекта.
 7. - [x] Добавить в CMakeLists.txt автоматизацию процесса сборки
 примеров.
-8. - [] Обеспечить непрерывный процесс сборки проекта с
+8. - [ ] Обеспечить непрерывный процесс сборки проекта с
 использованием сервиса Travis CI .
-9. - [] Обеспечить непрерывный процесс сборки и тестирование проекта
+9. - [ ] Обеспечить непрерывный процесс сборки и тестирование проекта
 с использованием сервисов Travis CI и AppVeyor.
-10. - [] Написать документацию к проекту с использованием инструмента
+10. - [ ] Написать документацию к проекту с использованием инструмента
 doxygen и разместить ее на сервисе GitHub Page.
-11. - [] Добавить в CMakeLists.txt автоматизацию процесса
+11. - [ ] Добавить в CMakeLists.txt автоматизацию процесса
 пакетирования.
 
 
 ```ShellSession
 $ git clone https://github.com/kit10000000/hopfield_net.git hopfield_net
 $ cd hopfield_net
-$ cmake -H. -B_builds # in process
-$ cmake --build _builds # in process
+$ cmake -H. -B_builds 
+$ cmake --build _builds 
 ```
