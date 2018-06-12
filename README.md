@@ -15,7 +15,7 @@
 6. Очистка эталонов и паттернов
 7. Завершить работу программы
 
-Документация: [:green_book:](https://kit10000000.github.io/hopfield_net/index.html)
+Документация: [:green_book:](https://kit10000000.github.io/hopfield_net/)
 
 Требования:
 1. - [x] Файлы исходного кода должны располагаться на сервисе GitHub
